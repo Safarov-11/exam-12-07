@@ -1,12 +1,14 @@
 using Domain.ApiResponse;
 using Domain.DTOs.CustomerDTOs;
 using Infrastructure.Customers.CustomerInterfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
+[Authorize (Roles ="Admin, Manager")]
 public class CustomerController(ICustomerService customerService) : ControllerBase
 {
     [HttpGet]

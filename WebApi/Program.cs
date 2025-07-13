@@ -20,6 +20,7 @@ using Infrastructure.Branches.BrancheServices;
 using Infrastructure.Rentals.RentalInterfaces;
 using Infrastructure.Rentals.RentalRepositories;
 using Infrastructure.Rentals.RentalServices;
+using Infrastructure.Statistics;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -40,6 +41,9 @@ builder.Services.AddScoped<IBrancheService, BrancheService>();
 
 builder.Services.AddScoped<IRentalRepository, RentalRepository>();
 builder.Services.AddScoped<IRentalService, RentalService>();
+
+builder.Services.AddScoped<IStatisticRepository, StatisticRepository>();
+builder.Services.AddScoped<IStatisticService, StatisticService>();
 
 builder.Services.AddSwaggerGen(options =>
 {

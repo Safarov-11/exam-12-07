@@ -1,12 +1,14 @@
 using Domain.ApiResponse;
 using Domain.DTOs.StatisticsDTOs;
 using Infrastructure.Statistics;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
+[Authorize (Roles ="Admin, Manager")]
 public class StatisticsController(IStatisticService statistic) : ControllerBase
 {
     [HttpPost("total-rentals-prices")]

@@ -1,12 +1,14 @@
 using Domain.ApiResponse;
 using Domain.DTOs.BrancheDTOs;
 using Infrastructure.Branches.BrancheInterfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
+[Authorize (Roles ="Admin, Manager")]
 public class BrancheController(IBrancheService brancheService) : ControllerBase
 {
     [HttpGet]

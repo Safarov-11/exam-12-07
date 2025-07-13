@@ -2,12 +2,14 @@ using Domain.ApiResponse;
 using Domain.DTOs.CarDTOs;
 using Domain.Filters;
 using Infrastructure.Cars.CarInterfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
+[Authorize (Roles ="Admin, Manager")]
 public class CarController(ICarService carService) : ControllerBase
 {
     [HttpGet]

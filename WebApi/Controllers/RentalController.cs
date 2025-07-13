@@ -3,12 +3,14 @@ using Domain.DTOs.RentalDTOs;
 using Domain.Filters;
 using Infrastructure.Rentals.RentalInterfaces;
 using Infrastructure.Rentals.RentalServices;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
+[Authorize (Roles ="Admin, Manager")]
 public class RentalController(IRentalService rentalService) : ControllerBase
 {
     [HttpGet]
